@@ -23,38 +23,7 @@ def a_star_search(puzzle, steps=0):
         True: if a solution was found
         False: If a solution was not found
     """
-    """
-    Method 1 of applying A* search
-    """
-    # solved = False
-    # row = -1
-    # col = -1
-    # candidates = []
-
-    # for i in range(9):
-    #     for j in range(9):
-    #         if puzzle[i][j] == 0:
-    #             cell_candidates = Sudoku(puzzle).get_candidates_for_empty_cell(i, j)
-    #             if row < 0 or len(cell_candidates) < len(candidates):
-    #                 row = i
-    #                 col = j
-    #                 candidates = cell_candidates
-    # if row < 0:
-    #     solved = True
-    #     print(f"Solved sudoku puzzle in {steps} steps")
-    # else:
-    #     for i in range(len(candidates)):
-    #         puzzle[row][col] = candidates[i]
-    #         steps += 1
-    #         if(a_star_search(puzzle, steps)):
-    #             solved = True
-    #             break
-    #         puzzle[row][col] = 0
-    # return solved
-
-    """
-    Method 2 of applying A* search
-    """
+    
     candidates = []
     board = Sudoku(puzzle)
     row = -1

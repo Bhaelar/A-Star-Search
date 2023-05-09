@@ -4,6 +4,30 @@ class Sudoku:
         self.rows = len(puzzle)
         self.columns = len(puzzle[0])
 
+    def is_puzzle_valid(self) -> bool:
+        """
+        Checks if the puzzle to be solved is valid and solvable
+
+        Returns
+        -------
+        Boolean
+            True: if the value is valid
+            False: If the value is not valid
+        """
+        for row in range(self.rows):
+            for col in range(self.columns):
+                cell_value = self.puzzle[row][col]
+                if cell_value not in range(10):
+                    return False
+                if cell_value != 0:
+                    if (
+                        self._is_value_valid_in_row_full_puzzle(row, cell_value) == False
+                        or self._is_value_valid_in_column_full_puzzle(col, cell_value) == False
+                        or self._is_value_valid_in_square_full_puzzle(row, col, cell_value == False)
+                    ):
+                        return False
+        return True
+
     def _is_value_valid_in_row(self, row, value) -> bool:
         """
         Checks if a potential value to be inserted in the board is valid in provided row
